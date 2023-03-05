@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <style>
+        h1{
+            color:#29C5FF;
+            margin-left: 90px;
+            margin-top: 65px;
+            border-radius: 20px 20px 20px;
+            padding-right: 20px;
+            padding-top: 0px;
+            font-family: Digital-7;
+            letter-spacing: 5px;
+        }
+        h2{
+            color:#29C5FF;
+            margin-left: 80px;
+            font-family: Digital-7;
+            letter-spacing: 1px;
+            position: relative;
+            bottom: 20px;
+        
+        }
+        h3{
+            color:#29C5FF;
+            margin-left: 90px;
+            border-radius: 20px 20px 20px;
+            font-family: Digital-7;
+            position: relative;
+            bottom: 20px;
+        }
+       
+        #div-1{
+            margin-left: 40px;
+            margin-top: 80px;
+            border-radius: 20px 20px 20px 20px;
+            background-color: blue;
+            border: 2px solid #bc13fe;
+            width: 300px;
+            height: 250px;
+           background-color: black;
+           box-shadow: 5px -5px 20px #bc13fe,-5px 5px 20px #ff073a,-5px 5px 20px #ff0055,5px 5px 20px #ff073a   ,-5px -5px 20px #bc13fe, -5px -5px 20px #ff073a;
+
+
+
+        }
+        
+    </style>
+</head>
+<body id="A" onload="digitalclock()">
+    <br>
+    <br>
+    <br>
+
+
+    
+<div id="div-1">
+       <marquee behavior="slide"> <h1 id="Roju"></h1></marquee>
+                                   <h2 id="Masam"></h2>
+                                    <h3 id="Samayam"></h3>
+</div>
+    <!-- js code-->
+    <script>
+        function digitalclock()
+        {
+            var timezone=new Date();
+            var day=timezone.getDay();
+            switch(day)
+            {
+                case 0:document.getElementById('Roju').innerHTML='SUNDAY'
+                      document.getElementById('A').style.backgroundImage="url(./SUN.jpg)"
+                      document.getElementById('A').style.backgroundSize="100% 600px"
+                break;
+                case 1:document.getElementById('Roju').innerHTML='MONDAY'
+                       document.getElementById('A').style.backgroundImage="url(./MON.jpg)"
+                       document.getElementById('A').style.backgroundSize="100% 600px"
+                break;
+                case 2:document.getElementById('Roju').innerHTML='TUESDAY'
+                      document.getElementById('A').style.backgroundImage="url(./TUE.jpg)"
+                      document.getElementById('A').style.backgroundSize="100% 600px"
+                break;
+                case 3:document.getElementById('Roju').innerHTML='WENDSDAY'
+                       document.getElementById('A').style.backgroundImage="url(./WED.jpg)"
+                       document.getElementById('A').style.backgroundSize="110% 700px"
+                       document.getElementById('A').style.backgroundRepeat="none"
+                break;
+                case 4:document.getElementById('Roju').innerHTML='THURSDAY'
+                      document.getElementById('A').style.backgroundImage="url(./THU.jpg)"
+                       document.getElementById('A').style.backgroundSize="100% 600px"
+                break;
+                case 5:document.getElementById('Roju').innerHTML='FRIDAY'
+                       document.getElementById('A').style.backgroundImage="url(./FRI.jpg)"
+                       document.getElementById('A').style.backgroundSize="100% 600px"
+                break;
+                case 6:document.getElementById('Roju').innerHTML='SATURDAY'
+                       document.getElementById('A').style.backgroundImage="url(./SUT.png)"
+                       document.getElementById('A').style.backgroundSize="100% 600px"
+                break;
+            }
+            var dd=timezone.getDate();
+            var mon=timezone.getMonth()+1;
+           /* switch(mon)
+            {
+             case 0:mon='JAN'
+             break;
+             case 1:mon='FEB'
+             break;
+             case 2:mon='MAR'
+             break;
+             case 3:mon='APRIL'
+             break;
+             case 4:mon='MAY'
+             break;
+             case 5:mon='JUNE'
+             break;
+             case 6:mon='JULY'
+             break;
+             case 7:mon='AUG'
+             break;
+             case 8:mon='SEP'
+             break;
+             case 9:mon='OCT'
+             break;
+             case 10:mon='NOV'
+             break;
+             case 11:mon='DEC'
+             break;
+            }*/
+            var yyyy=timezone.getFullYear();
+            var date=dd+" - " +mon + " - "+yyyy
+            document.getElementById('Masam').innerHTML=date
+            var hh=timezone.getHours();
+            if(hh>=12)
+            {
+                hh-=12
+            }
+            var mm=timezone.getMinutes();
+            var ss=timezone.getSeconds();
+           var am_pm =""
+           if(hh>=12)
+          {
+            am_pm='AM'
+          }
+          else
+          {
+            am_pm='PM'
+          }
+ 
+            var time=hh+" : "+ mm +" : "+ ss +" "+am_pm
+            document.getElementById('Samayam').innerHTML=time
+            var update=setInterval(function(){digitalclock(),1000})
+        }
+    </script>
+</body>
+</html>
+    
+</body>
+</html>
