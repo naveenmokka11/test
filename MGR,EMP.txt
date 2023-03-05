@@ -1,0 +1,54 @@
+                                                RELATION BETWEEN MGR & EMPLOYEE
+
+1)SELECT ENAME 
+FROM EMP
+WHERE EMPNO=(SELECT MGR 
+             FROM EMP
+             WHERE ENAME='SMITH');
+2)SELECT ENAME
+FROM EMP
+WHERE EMPNO=(SELECT MGR
+             FROM EMP
+             WHERE EMPNO=(SELECT MGR
+                          FROM EMP
+                           WHERE ENAME='ADAMS'))
+3)SELECT DNAME
+FROM DEPT
+WHERE DEPTNO IN(SELECT DEPTNO
+                FROM EMP
+                WHERE EMPNO=(SELECT MGR
+                             FROM EMP
+                            WHERE ENAME='JONES'))
+4)
+ SELECT SAL
+ FROM EMP
+ WHERE EMPNO=(SELECT MGR
+              FROM EMP
+              WHERE ENAME='MILLER')
+ /
+ 5)SELECT LOC
+ FROM DEPT
+ WHERE DEPTNO IN(SELECT DEPTNO
+                 FROM EMP
+                 WHERE EMPNO=(SELECT MGR
+                              FROM EMP
+                             WHERE EMPNO=(SELECT MGR
+                                           FROM EMP
+                                           WHERE ENAME='SMITH')))
+ /
+6)SELECT *
+ FROM EMP
+WHERE MGR=(SELECT EMPNO
+            FROM EMP
+            WHERE ENAME='BLAKE');
+7)  SELECT COUNT(*)
+  FROM EMP
+  WHERE MGR=(SELECT EMPNO
+              FROM EMP
+               WHERE ENAME='KING');
+8)SELECT *
+FROM EMP
+WHERE MGR=(SELECT EMPNO
+           FROM EMP
+            WHERE ENAME='JONES');
+
